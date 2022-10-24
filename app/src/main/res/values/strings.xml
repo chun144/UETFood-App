@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UETFood</string>
+    <string name="register"><u>Tạo tài khoản mới</u></string>
+    <string name="login"><u>Đăng nhập</u></string>
+</resources>
