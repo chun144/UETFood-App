@@ -15,54 +15,103 @@ interface ServiceAppCallApi {
     @POST("/api/v1/register")
     fun register(
         @Body body: RegisterRequest
-    ): Observable<RegisterResponse>
+    ): Observable<MessageResponse>
 
-    //Admin call cái này, item ngoài hiện idOrder, totalprice, date, status, click vào item hiện đủ
-    //Thanh search có các chức năng tìm kiếm theo id, date, status
-    //Các status: ordered(đã đặt hàng), shipping(đang giao hàng), shipped(đã giao hàng), canceled(bùng hàng)
+    @GET("/api/v1/food/all")
+    fun getAllFood(): Observable<MutableList<FoodResponse>>
+
+    @POST("/api/v1/food")
+    fun addFood(
+        @Body body: FoodRequest
+    ): Observable<FoodResponse>
+
+    @PUT("/api/v1/food/{id}")
+    fun putFood(
+        @Path("id") id: Int?, @Body body: FoodRequest
+    ): Observable<FoodResponse>
+
+    @DELETE("/api/v1/food/{id}")
+    fun deleteFood(
+        @Path("id") id: Int?
+    ): Observable<MessageResponse>
+
+    @POST("/api/v1/order")
+    fun addOrder(
+        @Body body: OrderRequest
+    ): Observable<OrderResponse>
+
+    @POST("/api/v1/shopping-cart")
+    fun addCart(
+        @Body body: CartRequest
+    ): Observable<CartResponse>
+
+    @GET("/api/v1/shopping-cart/{username}")
+    fun getFoodCart(
+        @Path("username") id: String?
+    ): Observable<MutableList<FoodResponse>>
+
+    @HTTP(method = "DELETE", path = "/api/v1/shopping-cart", hasBody = true)
+    fun deleteCart(
+        @Body body: CartRequest
+    ): Observable<MessageResponse>
+
     @GET("/api/v1/order/all")
     fun getAllOrder(): Observable<MutableList<OrderResponse>>
 
-    //User call, hiện tương tự như admin
     @GET("/api/v1/order/user/{username}")
     fun getOrderUser(
         @Path("username") username: String?
     ): Observable<MutableList<OrderResponse>>
 
-    //Shipper call, lấy ra những order shipper đã nhận hoặc đã giao, hiển thị tương tự như admin
     @GET("/api/v1/order/shipper/{username}")
     fun getOrderShipper(
         @Path("username") username: String?
     ): Observable<MutableList<OrderResponse>>
 
-    //Shipper: với những item order status shipping có thêm nút xác nhận đã giao hàng
-    //truyền id của order và status là shipped(đã giao hàng) hoặc canceled(bùng hàng)
+    @GET("/api/v1/order/{id}")
+    fun getOrder(
+        @Path("id") id: Int?
+    ): Observable<OrderResponse>
+
     @PUT("/api/v1/order-shipper/{orderId}/{status}")
     fun putStatusOrder(
         @Path("orderId") orderId: Int?, @Path("status") status: String?
     ): Observable<OrderResponse>
 
-    //User call để tạo các question
+    @POST("/api/v1/order-shipper")
+    fun addOrderShipper(
+        @Body body: OrderShipperRequest
+    ): Observable<OrderShipperResponse>
+
     @POST("/api/v1/question")
     fun addQuestion(
         @Body body: QuestionRequest
     ): Observable<QuestionResponse>
 
-    //Admin call để lấy toàn bộ câu hỏi của User
-    //các item ngoài hiện id(câu hỏi số...), text, số lượng câu trả lời, click item hiện tương tự như app chat
     @GET("/api/v1/question/all")
     fun getAllQuestion(): Observable<MutableList<QuestionResponse>>
 
-    //User call lấy question của user đó
     @GET("/api/v1/question/{username}")
     fun getQuestionUser(
         @Path("username") username: String?
     ): Observable<MutableList<QuestionResponse>>
 
-    //User và Admin call để tạo các answer của question nào đó
+    @GET("/api/v1/question/{id}")
+    fun getQuestion(
+        @Path("id") id: Int?
+    ): Observable<QuestionResponse>
+
     @POST("/api/v1/answer")
     fun addAnswer(
         @Body body: AnswerRequest
     ): Observable<AnswerResponse>
+
+    @GET("/api/v1/comment/all")
+    fun getAllFeedback(): Observable<MutableList<FeedbackResponse>>
+
+    @POST("/api/v1/comment")
+    fun addFeedback(
+        @Body body: FeedbackRequest
+    ): Observable<FeedbackResponse>
 
 }

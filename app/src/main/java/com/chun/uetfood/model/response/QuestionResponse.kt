@@ -5,4 +5,5 @@ class QuestionResponse {
     var text = ""
     var user: UserResponse? = null
     var listAnswer = mutableListOf<AnswerResponse>()
+    var date = ""
 }

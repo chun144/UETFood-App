@@ -6,10 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.chun.uetfood.model.request.RegisterRequest
 import com.chun.uetfood.model.response.ErrorResponse
-import com.chun.uetfood.model.response.RegisterResponse
+import com.chun.uetfood.model.response.MessageResponse
 import com.chun.uetfood.service.RetrofitFactor
 import com.chun.uetfood.service.ServiceAppCallApi
-import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.rxjava2.HttpException
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -18,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
 class RegisterViewModel : ViewModel {
     private val service: ServiceAppCallApi
     val errorResponse : MutableLiveData<ErrorResponse>
-    val registerData : MutableLiveData<RegisterResponse>
+    val registerData : MutableLiveData<MessageResponse>
     val isLoading: ObservableBoolean
 
     constructor() {
@@ -44,9 +43,6 @@ class RegisterViewModel : ViewModel {
                 },
                 {
                     if (it is HttpException){
-                        //lay data loi tra ve
-//                        val contentError = it.response().errorBody()?.string()
-//                        val error = Gson().fromJson(contentError, ErrorResponse::class.java)
                         val error = ErrorResponse()
                         error.error_code = it.code()
                         error.error_message = it.message()

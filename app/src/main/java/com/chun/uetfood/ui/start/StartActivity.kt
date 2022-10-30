@@ -5,9 +5,9 @@ import android.os.Bundle
 import com.chun.uetfood.R
 import com.chun.uetfood.ui.base.activity.BaseActivity
 import com.chun.uetfood.ui.main.MainActivity
-import com.chun.uetfood.ui.start.login.LoginFragment
-import com.chun.uetfood.ui.start.register.RegisterFragment
-import com.chun.uetfood.ui.start.splash.SplashFragment
+import com.chun.uetfood.ui.start.fragment.LoginFragment
+import com.chun.uetfood.ui.start.fragment.RegisterFragment
+import com.chun.uetfood.ui.start.fragment.SplashFragment
 
 
 class StartActivity : BaseActivity(){

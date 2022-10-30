@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <variable
@@ -9,7 +10,6 @@
     </data>
 
     <RelativeLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -27,14 +27,14 @@
                 app:civ_border_width="2dp"
                 app:civ_border_color="#3F51B5"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="34dp"/>
+                android:layout_marginTop="30dp"/>
 
             <TextView
                 android:id="@+id/tv_slogan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="28dp"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:text="UET Foodboiz, ship ''gà'' đến mọi nhà"
@@ -44,7 +44,7 @@
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/edt_username"
-                android:drawableLeft="@drawable/sharp_perm_identity_blue_500_24dp"
+                android:drawableLeft="@drawable/baseline_perm_identity_white_24dp"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginLeft="64dp"
@@ -69,7 +69,7 @@
                 android:background="@drawable/bg_edt"
                 android:drawablePadding="8dp"
                 android:hint="Mật khẩu"
-                android:drawableLeft="@drawable/sharp_lock_open_blue_500_24dp"
+                android:drawableLeft="@drawable/baseline_lock_open_white_24dp"
                 android:inputType="textPassword"
                 android:paddingLeft="8dp"
                 android:paddingTop="8dp"

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/context_id"
+        android:title="Đơn hàng số"/>
+
+    <item android:id="@+id/context_status"
+        android:title="Trạng thái">
+
+        <menu>
+            <item
+                android:id="@+id/context_status_ordered"
+                android:title="Đã đặt hàng"/>
+            <item
+                android:id="@+id/context_status_shipping"
+                android:title="Đang giao hàng"/>
+            <item
+                android:id="@+id/context_status_shipped"
+                android:title="Đã giao hàng"/>
+            <item
+                android:id="@+id/context_status_canceled"
+                android:title="Đã hủy đơn hàng"/>
+        </menu>
+
+    </item>
+
+
+    <item android:id="@+id/context_date"
+        android:title="Ngày đặt"/>
+</menu>

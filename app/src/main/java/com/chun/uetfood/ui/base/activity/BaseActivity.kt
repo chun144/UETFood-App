@@ -12,7 +12,7 @@ open class BaseActivity : AppCompatActivity(){
     fun getCurrentBaseFragment(): BaseFragment?{
         for (fragment in supportFragmentManager.fragments) {
             if (fragment != null && fragment.isVisible && fragment is BaseFragment){
-                return fragment as BaseFragment
+                return fragment
             }
         }
         return null
@@ -27,10 +27,14 @@ open class BaseActivity : AppCompatActivity(){
         return null
     }
 
+    fun onFinish() {
+        finish()
+    }
+
     open override fun onBackPressed() {
         val fr = getCurrentBaseFragment()
         if (fr != null ){
-            fr.onBackPress()
+            fr.onBackPressForFragment()
             return
         }
         onBackPressRoot()
